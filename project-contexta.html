@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<!--
+  ОБРАЗЕЦ И ШАБЛОН страницы проекта.
+  Для следующего проекта скопируйте файл, переименуйте
+  (например project-pharos.html) и замените текст, СОХРАНИВ структуру:
+  название → одна фраза → факты → вопрос → как работает → исследование →
+  пример → решения → границы → что дальше.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contexta — Symbat Ussupova</title>
+<meta name="description" content="A tool that shows how a news article is framed, not only whether its facts are true.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="masthead">
+  <div class="masthead__inner">
+    <a class="wordmark" href="index.html">Symbat Ussupova</a>
+    <nav aria-label="Sections">
+      <a href="index.html#research">Research</a>
+      <a href="index.html#games">Games &amp; 3D</a>
+      <a href="index.html#film">Film</a>
+      <a href="index.html#about">About</a>
+    </nav>
+  </div>
+</header>
+<div class="article-wrapper">
+<main class="project">
+
+  <a class="project__back" href="index.html">Back to all work</a>
+
+  <h1 class="project__title">Contexta</h1>
+
+  <p class="project__summary">
+    A tool that reads a news article and shows how the wording can affect the perception of the material. It highlights the relevant fragment, names the technique used, and indicates whether it belongs to the article’s author or the cited source. Fact‑checking allows you to determine whether a statement is true. Contexta analyzes how the story is presented.
+  </p>
+
+  <dl class="facts">
+    <div><dt>My role</dt><dd>Product development and technical implementation. I built the interface and connected the analysis pipeline, worked on the research and the knowledge base behind the taxonomy, and turned that framework into the structured prompt the system runs on.</dd></div>
+    <div><dt>Team</dt><dd>Two. Balnur Baizhuminova and I worked together across research, taxonomy, and product development. I focused on the technical implementation and interface, while we developed the research base and taxonomy jointly.</dd></div>
+    <div><dt>When</dt><dd>2026. Six weeks from concept to working prototype, for the UNESCO Youth Hackathon.</dd></div>
+    <div><dt>Try it</dt><dd><a href="https://context-decoder-tool.lovable.app/">context-decoder-tool.lovable.app</a></dd></div>
+    <div><dt>Demo</dt><dd><a href="https://youtu.be/kF2DeaOMgWA">Two-minute walkthrough</a></dd></div>
+  </dl>
+
+  <h2>The question</h2>
+  <p>
+    Fact-checking is useful when the question is whether something is true or false. But a story can be factually accurate and still influence how a reader understands what happened.
+  </p>
+  <p>
+    The difference can be in which facts are selected, how they are worded, and whose perspective is given more space. Two outlets can report the same events and leave readers with very different impressions.
+  </p>
+  <p>
+    We asked whether these choices could be made visible at the level of the sentence, so that readers without media training could inspect them for themselves.
+  </p>
+
+  <h2>How it works</h2>
+  <p>
+    You paste an article or a URL. Contexta runs two kinds of analysis side by
+    side.
+  </p>
+  <p>
+    <strong>Framing analysis</strong> checks the article against nine manipulation tactics. It highlights relevant passages and shows the tactic, intensity, source of the wording, and a short explanation.
+  </p>
+  <p>
+    <strong>Fact-check</strong> identifies the main factual claim and compares it with external sources. Sources are shown as supporting, contradicting, or providing additional context rather than being reduced to a single verdict.
+  </p>
+
+  <figure>
+    <img src="images\img1.jpg" width="650" height="500" alt="Пример"
+         alt="Contexta results screen: a manipulation score of 22 out of 100 marked low, beside a fact-check panel with a distortion-of-facts gauge.">
+    <figcaption>
+      An Al Jazeera opinion column returned a framing score of 22/100. The system found two rhetorical moves but kept the overall assessment low, taking the article's clearly labelled opinion format into account.
+    </figcaption>
+  </figure>
+
+  <h2>The research behind it</h2>
+  <p>
+    The taxonomy came before the software.
+  </p>
+  <p>
+    We reviewed more than forty academic studies on conflict coverage, misinformation, and manipulative communication and used them to develop a classification of nine tactics. For each tactic, we defined what to look for, how it can appear in language, and what should not be classified as manipulation.
+  </p>
+  <p>
+    That framework became the structured prompt used by the system. The model applies categories defined by our research rather than deciding on its own what counts as manipulation.
+  </p>
+
+  <h2>A worked example</h2>
+  <p>
+    One example came from a Russian-language article about the events in Bucha:
+  </p>
+  <div class="quote-box">
+  <p lang="ru">
+    Россия называет фотографии и видео из Бучи постановкой и провокацией, но
+    <mark>все аргументы, приведенные ею в подтверждение этого, оказались
+    опровергнуты специалистами</mark>.
+  </p>
+  </div>
+  <p>
+    Contexta flagged the sentence as false balance and one-sided framing at low intensity.
+  </p>
+  <p>
+    The issue is not simply that the sentence disagrees with the claim. It dismisses the claim by referring to unnamed specialists without explaining who they are, what they found, or which specific arguments they addressed.
+  </p>
+  <p>
+    The system also identifies the sentence as the outlet's own voice rather than a quotation. This distinction matters when analysing news language: reporting that someone used inflammatory language is different from using that language in the outlet's own voice.
+  </p>
+
+  <figure>
+    <img src="images\img2.jpg" width="650" height="500" alt="Пример"
+         alt="The flagged Bucha sentence highlighted inside the original article, with a panel naming the tactic, its low intensity, its attribution to the outlet's own voice, and the reasoning.">
+    <figcaption>
+      Each flag can be opened to see the reasoning behind it and the sources used for the fact-check.
+    </figcaption>
+  </figure>
+
+  <h2>Four decisions that shaped the system</h2>
+  <ul>
+    <li>
+      <strong>No binary verdict.</strong> Quotes, explanations, and intensity instead of a single label to accept or reject.
+    </li>
+    <li>
+      <strong>Counterexamples.</strong> Each tactic includes cases that look similar but should not be flagged. This helped reduce false positives during early testing.
+    </li>
+    <li>
+      <strong>Who is speaking.</strong> The system separates the outlet's own language from statements made by people it quotes or describes.
+    </li>
+    <li>
+      <strong>Two languages.</strong> The taxonomy includes English and Russian linguistic markers, since the same technique does not always appear through the same grammatical structure in both languages.
+    </li>
+  </ul>
+
+  <figure>
+    <img src="images\img3.jpg" width="650" height="500" alt="Пример"
+         alt="A second flagged passage about the Strait of Hormuz, labelled threat inflation at low intensity and attributed to the outlet's own voice.">
+    <figcaption>
+      A different tactic on another article, flagged at low intensity and attributed to the outlet, with fact-checking shown alongside it.
+    </figcaption>
+  </figure>
+
+
+  <h2>What it does not do</h2>
+  <p>
+   Contexta does not decide who is right in a conflict or label an article as good or bad.
+  </p>
+  <p>
+    It does not treat emotional language as manipulation on its own. A report about death, violence, or grief can naturally be emotional. The question is how that language is used.
+  </p>
+  <p>
+    The tool is also not intended to replace the reader's judgement. The reasoning behind each flag is visible so that the reader can agree, disagree, or check the evidence themselves.
+  </p>
+
+  <h2>Where it goes next</h2>
+  <p>
+    The main open question is how consistently the system works across a larger and more varied set of articles.
+  </p>
+  <p>
+    A next step is expanding the linguistic markers to more languages and studying how framing changes across different language contexts. I am especially interested in cases where the same technique appears across languages but is expressed through very different grammatical structures.
+  </p>
+  <p>
+  Another direction is a classroom version that could be used to teach students how to read news more critically.
+  </p>
+
+</main>
+</div>
+
+</body>
+</html>

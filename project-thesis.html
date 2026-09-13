@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  СТРАНИЦА ДИПЛОМНОЙ РАБОТЫ
+
+  Текст — ваш, я его не переписывал.
+  Все места под изображения помечены. Их два вида:
+
+  1. <figure> — уже стоит настоящая картинка, извлечённая из вашего PDF.
+     Комментарий над ней говорит, чем её можно заменить на более сильную.
+
+  2. <div class="slot"> — пустое место. На сайте оно видно пунктирной рамкой
+     с подписью, что туда положить. Когда вставите картинку — УДАЛИТЕ весь
+     блок slot целиком и поставьте на его место <figure> по образцу.
+
+  PDF диплома лежит в files/ и стоит одной ссылкой. Так и должно быть:
+  45 страниц никто не откроет, страница должна работать сама.
+  ============================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Framing a War — Symbat Ussupova</title>
+<meta name="description" content="A comparative study of how eight news outlets across four countries covered the war in Ukraine, with a 2D animated short based on the findings.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="masthead">
+  <div class="masthead__inner">
+    <a class="wordmark" href="index.html">Symbat Ussupova</a>
+    <nav aria-label="Sections">
+      <a href="index.html#research">Research</a>
+      <a href="index.html#games">Games &amp; 3D</a>
+      <a href="index.html#film">Film</a>
+      <a href="index.html#about">About</a>
+    </nav>
+  </div>
+</header>
+<div class="article-wrapper">
+<main class="project">
+
+  <a class="project__back" href="index.html">Back to all work</a>
+
+  <h1 class="project__title">The Influence of the Media on the Formation of Public Opinion in the Context
+    of Military Conflicts</h1>
+
+  <p class="project__meta">Undergraduate thesis · Astana IT University · 2024</p>
+
+  <p class="project__summary">
+   A comparative study of how different news outlets framed the war in Ukraine, combined with a 2D animated short.
+  </p>
+
+
+  <!-- ==========================================================
+       СЛОТ 1 — ГЛАВНОЕ ИЗОБРАЖЕНИЕ СТРАНИЦЫ.
+       Оно же обложка проекта на главной. Лучший кандидат — кадр
+       из фильма: две версии одного события рядом, если такой кадр
+       есть. Он объясняет работу быстрее любого текста.
+       Второй вариант — фон поля боя (images/thesis-background.webp).
+       ========================================================== -->
+
+  <dl class="facts">
+    <div><dt>My role</dt><dd>Co-author — frame matrix, media coding, and analysis; scriptwriting, character design, 2D animation, and compositing for the film.</dd></div>
+    <div><dt>Co-author</dt><dd>Balnur Baizhuminova</dd></div>
+    <div><dt>Supervisor</dt><dd>Aidiye Aidarbekov</dd></div>
+    <div><dt>Methods</dt><dd>Comparative content analysis · Qualitative frame analysis</dd></div>
+    <div><dt>Published as</dt><dd>Aidarbekov, A., Ussupova, S., &amp; Baizhuminova, B. (2024). <a href="https://ojs.publisher.agency/index.php/ASCRM/article/view/3502">Analysis of Media Manipulation Strategies During Military Conflicts</a>. <em>Academics and Science Reviews Materials</em>, No.&nbsp;6.</dd></div>
+    <div><dt>Full thesis</dt><dd><a href="files/thesis-media-public-opinion.pdf">PDF, 45 pages</a></dd></div>
+    <div><dt>Film</dt><dd><!-- РЕДАКТИРОВАТЬ: ссылка на YouTube или Vimeo --><a href="https://youtu.be/OidwisdOoSg?si=TAqapPc4dcQbXK3W">Watch the film</a></dd></div>
+  </dl>
+
+  <h2>The question</h2>
+  <p>
+    How does the way a news story is framed affect how people understand a conflict?
+  </p>
+  <p>
+    Rather than looking only at whether a claim was true or false, we looked at how different outlets presented the same events: what they emphasized, who they held responsible, and what solutions they suggested.
+  </p>
+
+  <h2>The study</h2>
+  <p>
+    We analyzed 22 articles from eight news outlets across four countries:
+  </p>
+  <ul>
+    <li><strong>Ukraine</strong> — 24 Kanal, TSN</li>
+    <li><strong>Russia</strong> — Channel One, RIA Novosti</li>
+    <li><strong>UK</strong> — BBC, The Guardian</li>
+    <li><strong>Kazakhstan</strong> — Tengri News, Sputnik</li>
+  </ul>
+  <p>
+    The articles came from two periods: the first 12 weeks of the invasion and
+    August 2022 – February 2023.
+  </p>
+  <p>
+    For each article, we used the same five-part frame matrix, looking at the main position, catch-phrases, problem source, implied solution, and how claims were presented.
+  </p>
+  <!-- ==========================================================
+       ФРЕЙМ-МАТРИЦА. Извлечена из Table 3.2 вашего диплома.
+       Это лучший артефакт на всей странице: он показывает не вывод,
+       а метод. Если сделаете чистую перерисованную версию таблицы
+       в Figma — заменяйте, скан из PDF читается хуже.
+       ========================================================== -->
+  <figure>
+    <img src="images\framing_matrix.png" width="450" height="500" alt="Пример" loading="lazy"
+         alt="The framing matrix: a table with columns for core position, catch-phrases and rhetoric, source of problem, implied solution, and attributed proposition.">
+    <figcaption>
+      The five-part frame matrix used to code the articles.
+    </figcaption>
+  </figure>
+
+  <h2>What we found</h2>
+  <p>
+    Four main strategies appeared across the sample: discrediting, sequential information dissemination, fragmented dissemination, and disinformation. Discrediting was the most common, often appearing through negative evaluation, accusation, and threat.
+  </p>
+
+  <!-- ==========================================================
+       ДИАГРАММА СТРАТЕГИЙ. Figure 4.1 из диплома.
+       ЗАМЕЧАНИЕ: диаграмма показывает проценты, а в тексте выше цифр
+       нет. Читатель увидит числа на картинке — либо назовите их в
+       тексте, либо перерисуйте диаграмму без процентов.
+       ========================================================== -->
+  <figure>
+    <img src="images\piechart.png"  width="550" height="500" alt="Пример" loading="lazy"
+         alt="Pie chart showing the relative frequency of the four manipulative strategies identified in the sample.">
+    <figcaption>
+      Relative frequency of the four strategies across the 22 articles.
+    </figcaption>
+  </figure>
+
+  <p>
+    We also found differences in how outlets presented the claims they reported. Seven articles explicitly endorsed the claims they presented, while 15 reported them without directly challenging them. None explicitly refuted the claims.
+  </p>
+  <p>
+    The outlets also differed in how they framed the conflict. Ukrainian outlets more often presented a clear solution, while British outlets tended to imply negative judgment without stating one directly. Russian outlets more often shifted responsibility for the problem, while Kazakh outlets tended to use more cautious wording.
+  </p>
+
+  <!-- ==========================================================
+       РАСПРЕДЕЛЕНИЕ ФРЕЙМОВ ПО ИЗДАНИЯМ. Figure 3.1 из диплома.
+       Стоит здесь, потому что абзац выше как раз про различия между
+       странами, и график их показывает.
+       ========================================================== -->
+  <figure>
+    <img src="images\barchart.png" width="550" height="500" alt="Пример" loading="lazy"
+         alt="Stacked bar chart showing which reinforcing frames appeared in which of the eight newspapers.">
+    <figcaption>
+      Distribution of frames across the coded outlets.
+    </figcaption>
+  </figure>
+
+  <h2>From research to film</h2>
+  <p>
+    We also created a 3-minute 2D animated short inspired by the research. The film has no dialogue and explores the idea of how the same situation can be seen and understood differently.
+  </p>
+ <div class="embed">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/OidwisdOoSg?si=EBbO2sOhDMgnxHiS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  </div>
+
+  <h2>What came next</h2>
+  <p>
+    The study was based on a relatively small sample, and manual coding also leaves room for interpretation.
+  </p>
+  <p>
+    It made me interested in how this kind of analysis could be made more systematic and applied to a much larger amount of media.
+  </p>
+  <p>
+    That question eventually led to <a href="project-contexta.html">Contexta</a> — an attempt to turn part of the research framework from this thesis into a working AI tool.
+  </p>
+
+</main>
+</div>
+
+</body>
+</html>

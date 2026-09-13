@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  СТРАНИЦА PHAROS.
+  Слоты помечены так же, как на других страницах:
+   • <div class="slot"> — пустое место, видно пунктиром. Вставили картинку —
+     удалите блок slot целиком и поставьте <figure> по образцу с других страниц.
+  Трейлер встроен настоящий, с itch.io. Ничего менять не нужно.
+  ============================================================================
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pharos — Symbat Ussupova</title>
+<meta name="description" content="A Lovecraft-inspired mobile game about a lighthouse that guides ships and holds back what is drawn to the light.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="masthead">
+  <div class="masthead__inner">
+    <a class="wordmark" href="index.html">Symbat Ussupova</a>
+    <nav aria-label="Sections">
+      <a href="index.html#research">Research</a>
+      <a href="index.html#games">Games &amp; 3D</a>
+      <a href="index.html#film">Film</a>
+      <a href="index.html#about">About</a>
+    </nav>
+  </div>
+</header>
+<div class="article-wrapper">
+<main class="project">
+
+  <a class="project__back" href="index.html">Back to all work</a>
+
+  <h1 class="project__title">Pharos</h1>
+
+  <p class="project__subtitle">Mobile action-strategy game</p>
+
+  <p class="project__meta">ColdLight Games · Android · In development · 2025</p>
+
+  <p class="project__summary">
+    A Lovecraft-inspired mobile game about a lighthouse that guides ships through the night while defending itself from creatures attracted by its light. Built with ColdLight Games, an independent team I co-founded during the Gamedev Teams Pipeline 3.0 programme.
+  </p>
+
+  <!-- ==========================================================
+       СЛОТ 1 — ОБЛОЖКА.
+       Готовый ключевой арт уже лежит на itch.io:
+       https://img.itch.zone/aW1nLzI3Njk5NTMzLnBuZw==/original/fZGyAT.png
+       Скачайте, сожмите на squoosh.app до 300 КБ и положите в
+       images/pharos-cover.webp
+       ========================================================== -->
+  <div class="slot">
+    <p class="slot__label"><img src="images\pharos.png" width="550" height="500" alt="Пример" loading="lazy"</p>
+  </div>
+  <p  
+
+  <!-- ===== РЕДАКТИРОВАТЬ: строку My role. Сейчас в ней есть пропуск.
+       «Также участвовала в геймдизайне» без конкретики читается слабее,
+       чем если этой фразы нет вовсе. Впишите, что именно: какие механики
+       предлагали, какие экраны проектировали, что балансировали. ===== -->
+  <dl class="facts">
+    <div><dt>My role</dt><dd>Co-founder, Lead 3D Artist, UI/UX Designer, and Game Designer. I defined the visual direction and created the lighthouse, environment, materials, lighting, and other 3D assets. I also worked on the game design, including gameplay mechanics and the overall structure of the game.</dd></div>
+    <div><dt>Team</dt><dd>ColdLight Games, an independent team I co-founded</dd></div>
+    <div><dt>Context</dt><dd>Gamedev Teams Pipeline 3.0, Omnium Center of Interactive Technologies and Educational Programs</dd></div>
+    <div><dt>Genre</dt><dd>Action, tower defence</dd></div>
+    <div><dt>Play it</dt><dd><a href="https://coldlightgames.itch.io/pharos">Download the prototype on itch.io</a></dd></div>
+  </dl>
+
+  <div class="embed">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/IIttICfbQYQ?si=fJ7r4Ui-1CAgWqGW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+            title="Pharos — trailer"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen loading="lazy"></iframe>
+  </div>
+
+  <h2>The game</h2>
+  <p>
+   The player controls a lighthouse that has to guide ships safely through the night while defending itself from creatures attracted by its light.
+  </p>
+  <p>
+    The main mechanic is built around this conflict: the light protects the ships, but it also attracts the enemies. During the day, players can meet rescued sailors, collect rewards, and upgrade the lighthouse before the next night.
+  </p>
+
+  <!-- ==========================================================
+       СЛОТ 2 — СКРИНШОТЫ ИГРОВОГО ПРОЦЕССА.
+       Два вертикальных скрина уже есть на itch.io. Лучше — три-четыре
+       кадра: ночь с лучом, волна врагов, дневной экран апгрейда.
+       ========================================================== -->
+  <div class="slot">
+  <p class="slot__label">
+    <img src="images\pharos1.jpg" width="200" height="300" alt="Пример" loading="lazy">
+  </p>
+  <p class="slot__label">
+    <img src="images\pharos2.jpg" width="200" height="300" alt="Пример" loading="lazy">
+  </p>
+  <p class="slot__label">
+    <img src="images\pharos3.PNG" width="210" height="400" alt="Пример" loading="lazy">
+  </p>
+</div>
+
+  <h2>Environment and visual direction</h2>
+  <p>
+    I focused mainly on the 3D environment and the visual style of the game — from the lighthouse and sea to the fog, materials, and lighting.
+  </p>
+  <p>
+    Because the game was made for mobile, everything had to remain readable on a small screen, especially during the darker scenes. I used silhouettes, lighting, and large shapes to separate the lighthouse, ships, enemies, and background without relying on small details.
+  </p>
+
+  <!-- ==========================================================
+       СЛОТ 3 — ВАША 3D-РАБОТА. Самое важное место на странице:
+       именно здесь видно, что сделали лично вы, а не команда.
+       Модели, текстуры, рендеры окружения, вид из Blender.
+       Подписывайте каждое: что это и что делали вы.
+       ========================================================== -->
+  <div class="slot">
+    <p class="slot__label">
+      <img src="images\Pharos MVP, копия, копия.svg" width="500" height="300" alt="Пример" loading="lazy"></p>
+      <p class="slot__label">
+    <img src="images\Pharos MVP, копия, копия2.svg" width="300" height="300" alt="Пример" loading="lazy">
+  </p>
+  </div>
+
+
+</main>
+</div>
+
+</body>
+</html>
