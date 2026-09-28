@@ -7,26 +7,18 @@
    ========================================================================== */
 
 :root {
-  /* ---- Цвета ------------------------------------------------------------
-     Палитра: холодная «архивная» бумага, чернила глубокого хвойного тона,
-     и один цвет-маркер — как пометка читателя на полях. Маркер используется
-     ТОЛЬКО там, где он что-то означает (размеченный текст в Contexta),
-     никогда как украшение.
-     -------------------------------------------------------------------- */
-  --paper:      #E9EBE6;
-  --paper-lift: #F3F4F1;
-  --ink:        #171D1A;
-  --ink-soft:   #55605A;
-  --rule:       #C7CCC5;
-  --mark:       #C2D0F0;   /* маркер-пометка */
-  --link:       #27467F;
+  /* Теплая, "бумажная" палитра, гармонирующая с фото */
+  --paper:       #FAF9F6;  /* Жемчужно-молочный оттенок */
+  --paper-lift:  #FFFFFF;  /* Чистый белый для карточек работ, чтобы они выделялись */
+  --ink:         #2C2825;  /* Цвет темного эспрессо (вместо резкого черного) */
+  --ink-soft:    #7A726B;  /* Теплый серый для подписей и дат */
+  --rule:        #E8E3DF;  /* Очень мягкие линии разделителей */
+  --link:        #3B5A79;  /* Приглушенный синий (перекликается с деталями на фото) */
 
-  /* ---- Шрифты ---------------------------------------------------------- */
-  --serif: "Newsreader", Georgia, "Times New Roman", serif;
-  --sans:  "Archivo", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-
-  /* ---- Ритм ------------------------------------------------------------ */
-  --measure: 34rem;         /* длина строки текста, ~70 знаков */
+  /* Подключаем новый живой шрифт */
+  --sans: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  --measure: 42rem;
   --gutter: 1.5rem;
 }
 
@@ -39,10 +31,9 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: var(--serif);
+  font-family: var(--sans); /* ИМЕННО ЗДЕСЬ нужно поменять на --sans */
   font-size: 1.0625rem;
   line-height: 1.65;
-  font-optical-sizing: auto;
 }
 
 img, video { max-width: 100%; height: auto; display: block; }
@@ -92,11 +83,15 @@ a:focus-visible, button:focus-visible {
 }
 
 .wordmark {
-  font-family: var(--serif);
-  font-size: 1.0625rem;
-  font-weight: 500;
-  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 400;           /* Убрали жирность */
+  color: var(--ink-soft);     /* Сделали цвет мягким серым, чтобы не спорил с главным заголовком */
   text-decoration: none;
+  letter-spacing: 0.02em;
+}
+.wordmark:hover {
+  color: var(--ink);          /* При наведении становится черным */
 }
 
 .masthead nav {
@@ -118,6 +113,61 @@ a:focus-visible, button:focus-visible {
   padding: 4rem var(--gutter) 3.5rem;
 }
 
+/* ---- Настройка главного экрана (две колонки) ---- */
+.hero__layout {
+  display: grid;
+  gap: 2rem;
+  align-items: center; 
+}
+
+/* На широких экранах делаем левую колонку широкой, а правую (фото) фиксированной */
+@media (min-width: 60rem) {
+  .hero__layout {
+    grid-template-columns: 1fr 250px; /* Было 220px, стало 250px */
+    gap: 4rem;
+  }
+}
+
+.hero__pronunciation {
+  font-family: var(--sans);
+  font-size: 1.1rem;
+  color: var(--ink-soft);
+  margin-top: -15px;
+  margin-bottom: 1.5rem;
+}
+
+.pronounce-hint {
+  opacity: 0.7;
+}
+
+/* ---- Делаем фото аккуратным ---- */
+.portrait { 
+  margin: 0; 
+}
+
+.portrait img {
+  width: 100%;
+  max-width: 250px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 16px;                     /* Скругление в тон текстовой карточке */
+  border: 1px solid var(--rule);           /* Тонкая рамка-контур */
+  box-shadow: 0 10px 30px rgba(44, 40, 37, 0.04); /* Мягкая тень */
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease; /* Плавность анимации */
+}
+
+.portrait figcaption { 
+  font-size: 0.85rem; 
+  color: var(--ink-soft); 
+  margin-top: 0.75rem; 
+  text-align: center; 
+}
+
+.portrait img:hover {
+  transform: translateY(-4px) scale(1.01);  /* Чуть-чуть приподнимается */
+  box-shadow: 0 15px 35px rgba(44, 40, 37, 0.08); /* Тень становится глубже */
+}
+
 .hero__standfirst {
   font-family: var(--sans);
   font-size: 0.875rem;
@@ -126,20 +176,29 @@ a:focus-visible, button:focus-visible {
 }
 
 .hero__question {
-  font-family: var(--serif);
-  font-weight: 300;
-  font-size: clamp(1.75rem, 5.5vw, 3.125rem);
-  line-height: 1.18;
-  letter-spacing: -0.015em;
-  margin: 0;
-  max-width: 22ch;
-  text-wrap: balance;
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: clamp(1.8rem, 3vw, 2.5rem); /* Уменьшили минимальный, динамический и максимальный размер */
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.5rem;
+  color: var(--ink);
+}
+
+.hero__pronunciation {
+  font-family: var(--sans);
+  font-size: 1.1rem;
+  color: var(--ink-soft);
+  margin-top: 0.75rem; /* Добавляем аккуратный воздух сверху (вместо минусового значения) */
+  margin-bottom: 2rem;
 }
 
 .hero__note {
   max-width: var(--measure);
-  margin: 2rem 0 0;
-  color: var(--ink-soft);
+  margin: 1.5rem 0 0;
+  color: var(--ink); /* Меняем бледный --ink-soft на насыщенный --ink */
+  font-size: 1.1rem; /* Чуть увеличиваем размер, чтобы интро лучше читалось */
+  line-height: 1.6;
 }
 
 /* ==========================================================================
@@ -166,11 +225,17 @@ a:focus-visible, button:focus-visible {
   list-style: none;
   margin: 0;
   padding: 0;
+  display: grid;
+  /* Меняем 320px на 240px. Теперь карточки станут компактнее, и их влезет 3 в ряд */
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 3rem 2rem; /* Чуть уменьшили расстояние между рядами */
 }
 
 .entry {
-  padding: 1.75rem 0;
-  border-top: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border-top: none; /* Убираем академические линии */
 }
 .entry:first-child { border-top: none; padding-top: 0; }
 
@@ -182,60 +247,70 @@ a:focus-visible, button:focus-visible {
    -------------------------------------------------------------------- */
 .entry__cover {
   display: block;
-  margin-bottom: 1.1rem;
-  background: var(--paper-lift);
-  border: 1px solid var(--rule);
+  width: 100%;
+  margin-bottom: 1.25rem;
+  border-radius: 12px;
   overflow: hidden;
-  border-radius: 8px; /* Скругляем сам контейнер */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.04); /* Легкая тень */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавность */
 }
+
 .entry__cover img {
   width: 100%;
   aspect-ratio: 16 / 10;
   object-fit: cover;
-  overflow: hidden;
+  display: block;
 }
-.entry__cover:hover { border-color: var(--link); }
+
+/* Эффект "живого" сайта при наведении мыши */
+.entry__cover:hover {
+  transform: translateY(-5px); /* Карточка чуть приподнимается */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08); /* Тень становится глубже */
+  border-color: transparent;
+}
 
 .entry__meta {
   font-family: var(--sans);
-  font-size: 0.8125rem;
+  font-size: 0.85rem;
   color: var(--ink-soft);
   display: flex;
   flex-wrap: wrap;
-  gap: 0.2rem 1.25rem;
+  gap: 0.5rem 1rem;
   margin: 0 0 0.5rem;
 }
 .entry__role { color: var(--ink-soft); }
 
 .entry__title {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: 1.5rem;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 1.15rem; /* Было 1.4rem, сделали аккуратнее */
   line-height: 1.25;
   margin: 0 0 0.4rem;
 }
-.entry__title a { color: var(--ink); text-decoration-color: var(--rule); }
-.entry__title a:hover { text-decoration-color: var(--link); color: var(--link); }
+.entry__title a { 
+  color: var(--ink); 
+  text-decoration: none; /* Убрали подчеркивание для чистоты */
+}
+.entry__title a:hover { 
+  color: var(--link); 
+}
 
 .entry__line {
   margin: 0;
-  max-width: var(--measure);
   color: var(--ink-soft);
+  font-size: 0.95rem; /* Текст описания тоже делаем чуть изящнее */
+  line-height: 1.5;
 }
 
 /* На широком экране обложка встаёт слева от текста */
 @media (min-width: 60rem) {
-  .entry {
-    display: grid;
-    grid-template-columns: 15rem 1fr;
-    gap: 2.5rem;
-    align-items: start;
-  }
+  .entry { display: flex; } /* Сбрасываем старое поведение колонок */
+}
   .entry__cover { margin-bottom: 0; }
 
   /* Если у проекта обложки нет, текст занимает всю ширину */
   .entry:not(:has(.entry__cover)) { grid-template-columns: 1fr; }
-}
+
 
 /* ==========================================================================
    About
@@ -248,7 +323,7 @@ a:focus-visible, button:focus-visible {
   font-size: 0.8125rem;
   font-weight: 600;
   color: var(--ink-soft);
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.5rem; /* Сделали отступ снизу поменьше, чтобы заголовок "прилип" к карточкам */
 }
 
 .plain { list-style: none; margin: 0; padding: 0; }
@@ -272,6 +347,7 @@ a:focus-visible, button:focus-visible {
   padding-left: 0;
   
 }
+
 
 /* 1. Главный контейнер (держит всё вместе по центру) */
 .article-wrapper {
@@ -360,13 +436,13 @@ a:focus-visible, button:focus-visible {
 }
 
 .project__title {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-family: var(--sans); /* Применяем наш новый гладкий шрифт */
+  font-weight: 500;
+  font-size: clamp(1.8rem, 4vw, 2.5rem); /* Немного уменьшили размер, чтобы длинное название смотрелось аккуратно */
   line-height: 1.15;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.02em;
   margin: 0 0 1rem;
-  max-width: 20ch;
+  max-width: var(--measure); /* Снимаем жесткое ограничение в 20ch, теперь заголовок займет нормальную ширину */
 }
 
 .project__summary {
@@ -491,4 +567,100 @@ mark {
 /* Уважаем настройку «уменьшить движение» в системе пользователя */
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
+}
+
+.entry__cover--text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--rule); 
+  text-decoration: none;
+  border: none;
+  
+  /* ЭТИ ДВЕ СТРОЧКИ СДЕЛАЮТ ЕЕ НУЖНОГО РАЗМЕРА: */
+  width: 100%;
+  aspect-ratio: 16 / 10;
+}
+
+.entry__cover--text span {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  transition: color 0.3s ease;
+}
+
+/* Эффект при наведении мыши */
+.entry__cover--text:hover {
+  background-color: var(--ink);
+}
+
+.entry__cover--text:hover span {
+  color: var(--paper);
+}
+.hero__card {
+  background-color: var(--paper-lift); /* Чистый белый цвет карточки */
+  padding: 2.5rem;                    /* Внутренние отступы, чтобы текст не прилипал к краям */
+  border-radius: 16px;                /* Мягкие, современные скругления */
+  box-shadow: 0 10px 30px rgba(44, 40, 37, 0.04); /* Очень мягкая, естественная тень */
+  border: 1px solid var(--rule);      /* Тонкая благородная рамка-контур */
+}
+
+/* Чуть подправляем отступы внутри карточки */
+.hero__card .hero__question {
+  margin-top: 0;
+}
+
+.about { display: grid; gap: 2.5rem; }
+.about__text p { max-width: var(--measure); margin: 0 0 1.1rem; }
+
+@media (min-width: 60rem) {
+  .about { grid-template-columns: 1fr 18rem; gap: 4rem; align-items: start; }
+}
+
+.about__links {
+  margin-top: 1.5rem;
+  line-height: 1.8;
+}
+
+/* Оформление наград в виде стильных мини-карточек */
+.recognition-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.recognition-list li {
+  background-color: var(--paper-lift); /* Белый фон только для плашки */
+  padding: 1rem 1.25rem;
+  border-radius: 12px;                 /* Аккуратные скругления */
+  border: 1px solid var(--rule);       /* Тонкий контур */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.02); /* Едва заметная тень для объема */
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+/* Эффект: плашка чуть сдвигается при наведении */
+.recognition-list li:hover {
+  transform: translateX(4px); 
+  border-color: #d0c8c0; /* Рамка становится чуть заметнее */
+}
+
+.rec-place {
+  display: block;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--ink);
+  margin-bottom: 0.15rem;
+}
+
+.rec-event {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
 }

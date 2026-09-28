@@ -10,7 +10,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -24,8 +24,7 @@
     <a class="wordmark" href="index.html">Symbat Ussupova</a>
     <nav aria-label="Sections">
       <a href="#research">Research</a>
-      <a href="#games">Games &amp; 3D</a>
-      <a href="#film">Film</a>
+      <a href="#visual">Games, 3D & Film</a>
       <a href="#about">About</a>
     </nav>
   </div>
@@ -40,12 +39,59 @@
        ===== РЕДАКТИРОВАТЬ: замените вопрос на свой из Phase 0 =====
        ============================================================ -->
   <section class="hero">
-    <h1 class="hero__question">
-      Media research, games, and visual work
-    </h1>
-    <p class="hero__note">
-      I work across media research, AI, game development, 3D art, film, and animation. I am interested in how stories are framed, what gets left out, and how different media can make those choices visible.
-    </p>
+    <div class="hero__layout">
+      <!-- Текстовая карточка с подложкой -->
+      <div class="hero__card">
+        <h1 class="hero__question">Symbat Ussupova</h1>
+        <p class="hero__pronunciation">/səmˈbɑːt/ <span class="pronounce-hint">— Sim-baht</span></p>
+        <p class="hero__note">
+          I’m a media researcher and creative technologist working across AI, games, and 3D. I’m interested in how stories are framed, what gets left out, and how interactive media can help us see those choices more clearly.
+        </p>
+      </div>
+      
+      <figure class="portrait">
+        <img src="images/my-photo.jpg" alt="Portrait of Symbat Ussupova.">
+      
+      </figure>
+    </div>
+  </section>
+
+<section class="section section--about" id="about">
+    <h2 class="section__title">About</h2>
+    <div class="about">
+      
+      <div class="about__text">
+        <p>
+          I studied Information and Communication Technologies in Kazakhstan, where I became interested in the intersection of media and technology. My undergraduate research focused on how news outlets in different countries framed the same events during military conflicts.
+        </p>
+        <p>
+         Since then, I’ve worked across UI/UX, 3D, animation, and game development. I co-founded a small game development team and worked on projects like Contexta, an interactive tool for exploring media manipulation. I’m interested in turning research questions into things people can see, use, and experience.
+        </p>
+        <p class="about__links">
+          <a href="files/Symbat_Ussupova_CV.pdf" target="_blank">Curriculum vitae (PDF)</a><br>
+          <a href="mailto:ussupovasymbat@gmail.com">ussupovasymbat@gmail.com</a>
+        </p>
+      </div>
+
+      <div class="about__recognition">
+        <h3 class="minor-title">Recognition</h3>
+        <ul class="recognition-list">
+          <li>
+            <span class="rec-place">Second place</span>
+            <span class="rec-event">RAID Game Jam 2025</span>
+          </li>
+          <li>
+            <span class="rec-place">Top 10</span>
+            <span class="rec-event">Best Game on Solana</span>
+          </li>
+          <li>
+            <span class="rec-place">Best Visual & Storytelling</span>
+            <span class="rec-event">Demo Day 2025</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
   </section>
 
   <!-- ============================================================
@@ -105,35 +151,35 @@
       </li>
 
       <li class="entry">
-        <div></div>
-        <div class="entry__body">
-          <div class="entry__meta">
-            <span class="entry__year">2022 — 2024</span>
-            <span class="entry__role">Author</span>
-          </div>
-          <h3 class="entry__title">
-            <a href="writing.html">Two peer-reviewed papers</a>
-          </h3>
-          <p class="entry__line">
-           Two papers covering media framing and technical network architecture.
-          </p>
-        </div>
-      </li>
+  <!-- Типографическая обложка вместо картинки -->
+  <a class="entry__cover entry__cover--text" href="writing.html">
+    <span>Publication</span>
+  </a>
+  <div class="entry__body">
+    <div class="entry__meta">
+      <span class="entry__year">2022 — 2024</span>
+      <span class="entry__role">Author</span>
+    </div>
+    <h3 class="entry__title">
+      <a href="writing.html">Two peer-reviewed papers</a>
+    </h3>
+    <p class="entry__line">
+      Two papers covering media framing and technical network architecture.
+    </p>
+  </div>
+</li>
     </ol>
   </section>
 
-  <section class="section" id="games">
-    <h2 class="section__title">Games and 3D</h2>
+  <section class="section" id="visual">
+    <h2 class="section__title">Games, 3D, and Film</h2>
 
     <ol class="index">
 
+      <!-- Проект: Pharos -->
       <li class="entry">
-        <!-- ОБЛОЖКА. Замените images/placeholder.svg на свой файл,
-             например images/pharos-cover.jpg. Пропорция 16:10 задана в CSS,
-             картинка обрежется сама. alt — короткое описание. -->
         <a class="entry__cover" href="project-pharos.html">
-          <img src="images\pharos.png" loading="lazy"
-               alt="Environment render from the game Pharos.">
+          <img src="images\pharos.png" loading="lazy" alt="Environment render from the game Pharos.">
         </a>
         <div class="entry__body">
           <div class="entry__meta">
@@ -144,18 +190,15 @@
             <a href="project-pharos.html">Pharos</a>
           </h3>
           <p class="entry__line">
-           Mobile action-strategy game about a lighthouse that guides ships while defending itself from creatures drawn to its light.
+            Mobile action-strategy game about a lighthouse that guides ships while defending itself from creatures drawn to its light.
           </p>
         </div>
       </li>
 
+      <!-- Проект: Servant's Brew -->
       <li class="entry">
-        <!-- ОБЛОЖКА. Замените images/placeholder.svg на свой файл,
-             например images/jam-cover.jpg. Пропорция 16:10 задана в CSS,
-             картинка обрежется сама. alt — короткое описание. -->
         <a class="entry__cover" href="project-jam (1).html">
-          <img src="images\servbrewcover.jpg" loading="lazy"
-               alt="Gameplay still from the RAID Game Jam prototype.">
+          <img src="images\servbrewcover.jpg" loading="lazy" alt="Gameplay still from the RAID Game Jam prototype.">
         </a>
         <div class="entry__body">
           <div class="entry__meta">
@@ -171,13 +214,10 @@
         </div>
       </li>
 
+      <!-- Проект: Delivery Shift -->
       <li class="entry">
-        <!-- ОБЛОЖКА. Замените images/placeholder.svg на свой файл,
-             например images/jam-cover.jpg. Пропорция 16:10 задана в CSS,
-             картинка обрежется сама. alt — короткое описание. -->
         <a class="entry__cover" href="project-delivery (1).html">
-          <img src="images\deliverycover.png" loading="lazy"
-               alt="Gameplay still from the RAID Game Jam prototype.">
+          <img src="images\deliverycover.png" loading="lazy" alt="Gameplay still from the RAID Game Jam prototype.">
         </a>
         <div class="entry__body">
           <div class="entry__meta">
@@ -188,18 +228,15 @@
             <a href="project-delivery (1).html">Delivery Shift</a>
           </h3>
           <p class="entry__line">
-           A cozy sci-fi platformer where your delivery bot explodes when the battery dies, leaving the next bot in line to finish the job.
+            A cozy sci-fi platformer where your delivery bot explodes when the battery dies, leaving the next bot in line to finish the job.
           </p>
         </div>
       </li>
 
+      <!-- Проект: 3D Art -->
       <li class="entry">
-        <!-- ОБЛОЖКА. Замените images/placeholder.svg на свой файл,
-             например images/3d-cover.jpg. Пропорция 16:10 задана в CSS,
-             картинка обрежется сама. alt — короткое описание. -->
         <a class="entry__cover" href="work-3d.html">
-          <img src="images\сarcover.png" loading="lazy"
-               alt="Rendered interior scene, one of the selected 3D works.">
+          <img src="images\сarcover.png" loading="lazy" alt="Rendered interior scene, one of the selected 3D works.">
         </a>
         <div class="entry__body">
           <div class="entry__meta">
@@ -215,15 +252,7 @@
         </div>
       </li>
 
-    </ol>
-  </section>
-
-  <!-- ============================================================ -->
-  <section class="section" id="film">
-    <h2 class="section__title">Film and animation</h2>
-
-    <ol class="index">
-
+      <!-- Проект: Документальный фильм (перенесен сюда) -->
       <li class="entry">
         <!-- ОБЛОЖКА. Замените images/placeholder.svg на свой файл,
              например images/films-cover.jpg. Пропорция 16:10 задана в CSS,
@@ -235,7 +264,7 @@
         <div class="entry__body">
           <div class="entry__meta">
             <span class="entry__year">2023</span>
-            <span class="entry__role">Varies — see each film</span>
+            <span class="entry__role">Cinematographer, Co-Director</span>
           </div>
           <h3 class="entry__title">
             <!-- ===== РЕДАКТИРОВАТЬ: оставьте 1–2 фильма, не все ===== -->
@@ -250,40 +279,8 @@
     </ol>
   </section>
 
-  <!-- ============================================================
-       ABOUT + RECOGNITION
-       Награды живут ЗДЕСЬ, компактным списком — и внутри страниц
-       проектов, где они были получены. Отдельной страницы «сертификаты»
-       быть не должно (см. инструкцию).
-       ============================================================ -->
-  <section class="section section--about" id="about">
-    <h2 class="section__title">About</h2>
+  
 
-    <div class="about">
-      <div class="about__text">
-        <p>
-          I studied media in Kazakhstan while also learning 3D modeling and game development. Since then, I have continued working across both areas, moving between research, creative projects, and technical work.
-        </p>
-        <p>
-          My work now spans media research, AI-based tools, games, 3D graphics, film, and animation. I am interested in how information is presented, how stories change across different media, and how different formats can change the way we understand them.
-        </p>
-        <p>
-          <!-- ===== РЕДАКТИРОВАТЬ: положите CV в папку files/ ===== -->
-          <a href="files/Symbat_Ussupova_CV.pdf">Curriculum vitae (PDF)</a><br>
-          <a href="mailto:ussupovasymbat@gmail.com">ussupovasymbat@gmail.com</a>
-        </p>
-      </div>
-
-      <div class="about__recognition">
-        <h3 class="minor-title">Recognition</h3>
-        <ul class="plain">
-          <li>Second place, RAID Game Jam 2025</li>
-          <li>Top 10, Best Game on Solana</li>
-          <li>Best Visual and Best Storytelling, Demo Day 2025</li>
-        </ul>
-      </div>
-    </div>
-  </section>
 
 
 </main>
